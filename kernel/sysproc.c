@@ -91,3 +91,18 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+// a sysproc for test
+uint64
+sys_fun(void)
+{
+  int n;
+  argint(0, &n);
+  uint64 fact = 1;
+  for(int i = 1; i <= n; i++) {
+    fact *= i;
+  }
+  printf("%lu\n", fact);
+  // nothing
+  return 0;
+}
